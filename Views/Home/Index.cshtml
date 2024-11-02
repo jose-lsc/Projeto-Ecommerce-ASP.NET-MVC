@@ -1,0 +1,44 @@
+﻿@model List<ServicoModel>
+
+@{
+    ViewData["Title"] = "Início";
+}
+@if (TempData["Mensagem"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["Mensagem"]
+    </div>
+}
+
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Internet</h5>
+            <p class="card-text">descrição</p>
+            <a class="btn btn-primary"
+               asp-controller="Servico" asp-action="DetalheServico" asp-route-tipo="1">Detalhes</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Televisão</h5>
+            <p class="card-text">descrição</p>
+            <a class="btn btn-primary"
+               asp-controller="Servico" asp-action="DetalheServico" asp-route-tipo="2">Detalhes</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Telefone</h5>
+            <p class="card-text">descrição</p>
+            <a class="btn btn-primary"
+               asp-controller="Servico" asp-action="DetalheServico" asp-route-tipo="3">Detalhes</a>
+        </div>
+    </div>
+
+
+
+</div>
+

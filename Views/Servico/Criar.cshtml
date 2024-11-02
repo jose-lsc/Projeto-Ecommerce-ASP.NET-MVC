@@ -1,0 +1,38 @@
+﻿@model ServicoModel;
+
+@{
+    ViewData["Title"] = "Cadastro de Serviços";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Cadastrar</h1>
+
+</div>
+<form asp-controller="Servico" asp-action="Criar" method="post">
+    <div class="mb-3">
+        <label for="nome" class="form-label">Descrição</label>
+        <input type="text" asp-for="Descricao" class="form-control"  autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label for="nome" class="form-label">Preço</label>
+        <input type="double" asp-for="Preco" class="form-control"  autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label for="nome" class="form-label">Tipo</label>
+        <input type="text" asp-for="Tipo" class="form-control"  autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label for="nome" class="form-label">Up</label>
+        <input type="text" asp-for="Up" class="form-control"  autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label for="nome" class="form-label">Down</label>
+        <input type="text" asp-for="Down" class="form-control"  autocomplete="off">
+    </div>
+
+    
+
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+    <a class="btn btn-secondary" asp-controller="Servico" asp-action="Index" role="button">Voltar</a>
+</form>

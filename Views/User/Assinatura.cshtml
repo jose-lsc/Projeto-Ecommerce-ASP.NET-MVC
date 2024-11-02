@@ -1,0 +1,41 @@
+﻿@model AssinaturaModel
+@{
+    ViewData["Title"] = "Assinatura";
+
+}
+
+<h1>Assinatura de Serviço</h1>
+
+<form asp-controller="Compra" asp-action="ConfirmarCompra" method="post">
+    <input type="hidden" asp-for="ServicoId" />
+
+    <div class="mb-3">
+        <label class="form-label">Nome do Titular</label>
+        <input asp-for="NomeTitular" class="form-control" autocomplete="off" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Número do Cartão</label>
+        <input asp-for="NumeroCartao" class="form-control" autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Código de Proteção</label>
+        <input asp-for="CodigoProtecao" class="form-control" autocomplete="off">
+    </div>
+
+    <div>
+        <label>
+            <input type="radio" asp-for="TipoPagamento" value="Debito">
+            Débito
+        </label>
+        <label>
+            <input type="radio" asp-for="TipoPagamento" value="Credito">
+            Crédito
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Comprar Pacote</button>
+
+    <a class="btn btn-secondary" asp-controller="Home" asp-action="Index" role="button">Voltar</a>
+    
+</form>
+

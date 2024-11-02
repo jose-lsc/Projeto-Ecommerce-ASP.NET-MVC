@@ -1,0 +1,33 @@
+﻿@model List<ServicoModel>
+
+<h1>Detalhes:</h1>
+@if (TempData["mensagem"] != null)
+{
+    
+    <div class="alert alert-info">
+        @TempData["Mensagem"]
+    </div>
+}
+@if (Model == null || !Model.Any())
+{
+    <p>Nenhum serviço disponível.</p>
+}
+else
+{
+    foreach (var lista in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-text">@lista.Descricao</p>
+                <p class="card-text">R$ @lista.Preco</p>
+                <p class="card-text">@lista.Tipo</p>
+                <p class="card-text">@lista.Up</p>
+                <p class="card-text">@lista.Down</p>
+                <a class="btn btn-primary"
+                   asp-controller="Compra" asp-action="Assinar" asp-route-id="@lista.Id">Assinar</a>
+                <a class="btn btn-primary"
+                   asp-controller="Carrinho" asp-action="AdicionarServico" asp-route-id="@lista.Id">+Carrinho</a>
+            </div>
+        </div>
+    }
+}

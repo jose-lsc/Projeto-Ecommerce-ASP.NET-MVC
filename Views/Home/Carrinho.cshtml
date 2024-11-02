@@ -1,0 +1,49 @@
+﻿@model List<CarrinhoModel>
+<h2>Itens do Carrinho</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Seu carrinho está vazio.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Serviço</th>
+                <th>Tipo</th>
+                <th>Preço</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Servicos.Descricao</td> <!-- Exemplo de propriedade do Serviço -->
+                    <td>@item.Servicos?.Tipo</td> <!-- Exemplo de propriedade do Serviço -->
+                    <td>@item.Servicos?.Preco.ToString("C")</td> <!-- Exemplo de propriedade do Serviço -->
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a class="btn btn-primary"
+                               asp-controller="Compra" asp-action="Assinar" asp-route-id="@item.Servicos.Id">Assinar</a>
+                            <form asp-controller="Carrinho" asp-action="RemoverServico" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <button type="submit" class="btn btn-danger">Remover</button>
+                            </form>
+
+
+                            
+                        </div>
+                    </td>
+                </tr>
+            }
+            <form asp-controller="Carrinho" asp-action="Apagar" method="post" style="display:inline;">
+
+                <button type="submit" class="btn btn-danger">Apagar Carrinho</button>
+            </form>
+        </tbody>
+    </table>
+}
+
+
